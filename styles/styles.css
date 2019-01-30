@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'FA Sans';
+    src: url(../fonts/The_Fourth_Avenue_Sans.ttf);
+}
+
+.hero-body {
+    background-image: url(../img/cup_ocean_sand.jpg);
+}
+.title {
+    padding-bottom: 500px;
+    font-family: 'FA Sans';
+    letter-spacing: 1px;
+}
