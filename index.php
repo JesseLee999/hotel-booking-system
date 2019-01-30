@@ -11,9 +11,17 @@
 <body>
     <section class="hero is-fullheight">
         <div class="hero-body">
-            <div class="container is-fluid">
-            <h1 class="title">Hotel Booking System</h1>
-            </div>
+            <h1 class="title is-2">Hotel Booking System</h1>
+            <div class="columns">
+                        <div class="column is-7">
+                        First Name:
+                        <input class="input is-hovered" type="text" placeholder="Please enter your name" reqiured>
+                        Surname:
+                        <input class="input is-hovered" type="text" placeholder="Please enter your surname" required>
+                        </div>
+                    </div>
+                <div class="container is-fluid">   
+                </div>
         </div>
     </section>
     
