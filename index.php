@@ -25,10 +25,10 @@
                         <div class="control">
                             <div class="select is-rounded">
                                 <select class="is-hovered" required>
-                                    <option value="0" name="0">--please select your hotel--</option>
-                                    <option value="1" name="1">Hotel #1</option>
-                                    <option value="2" name="2">Hotel #2</option>
-                                    <option value="3" name="3">Hotel #3</option>
+                                    <option value="" disabled selected>--please select your hotel--</option>
+                                    <option value="1" name="one">Hotel #1</option>
+                                    <option value="2" name="two">Hotel #2</option>
+                                    <option value="3" name="three">Hotel #3</option>
                                 </select>
                             </div>
                         </div>
