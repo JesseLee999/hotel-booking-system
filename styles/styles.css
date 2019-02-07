@@ -2,19 +2,34 @@
     font-family: 'FA Sans';
     src: url(../fonts/The_Fourth_Avenue_Sans.ttf);
 }
+@font-face {
+    font-family: 'Helvetica';
+    src: url(../fonts/Helvetica.ttf);
+}
 
 .hero-body {
-    background-image: url(../img/cup_ocean_sand.jpg);
+    background-image: url(../img/sea-beach-holiday-vacation.jpg);
+    line-height: 30px;
+    background-size: cover;
+    font-family: 'Helvetica'
 }
 .title {
     position: absolute;
-    top: 40px;
-    left: 60px;
+    top: 20px;
+    left: 85px;
     font-family: 'FA Sans';
     letter-spacing: 1px;
 }
 .column {
-    position: relative;
-    left: 35px;
-    bottom: 50px;
+    position: absolute;
+    left: 55px;
+    bottom: 75px;
 }
+#box1{
+    position: absolute;
+    left:70%;
+  }
+#box2{
+    position: absolute;
+    left:38%;
+  }
