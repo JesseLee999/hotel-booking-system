@@ -13,23 +13,21 @@
     background-size: cover;
     font-family: 'Helvetica'
 }
-.title {
-    position: absolute;
-    top: 20px;
-    left: 85px;
+.subtitle {
     font-family: 'FA Sans';
     letter-spacing: 1px;
 }
-.column {
+/* .column {
     position: absolute;
     left: 55px;
-    bottom: 75px;
+    bottom: 50px;
+} */
+.navbar-item {
+    font-family: 'Helvetica';
 }
-#box1{
-    position: absolute;
-    left:70%;
-  }
-#box2{
-    position: absolute;
-    left:38%;
-  }
+#bookForm {
+    background-color: #ffdd57;
+}
+#navLogo {
+    background-size: 50px;
+}

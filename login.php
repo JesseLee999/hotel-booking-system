@@ -9,7 +9,7 @@
 <body>
 	<section class="hero is-fullheight">
   <div class="hero-body">
-			<div class="box">
+			<div class="box" id="logForm">
   			<h2 class="title">Login</h2>
 	 
   <form method="post" action="login.php">
