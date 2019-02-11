@@ -6,7 +6,6 @@
     font-family: 'Helvetica';
     src: url(../fonts/Helvetica.ttf);
 }
-
 .hero-body {
     background-image: url(../img/sea-beach-holiday-vacation.jpg);
     line-height: 30px;
@@ -17,11 +16,6 @@
     font-family: 'FA Sans';
     letter-spacing: 1px;
 }
-/* .column {
-    position: absolute;
-    left: 55px;
-    bottom: 50px;
-} */
 .navbar-item {
     font-family: 'Helvetica';
 }

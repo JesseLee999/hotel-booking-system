@@ -1,5 +1,5 @@
 <?php 
-  session_start(); 
+  include_once 'base.php';
 
   if (!isset($_SESSION['username'])) {
   	$_SESSION['msg'] = "You must log in first";
@@ -13,6 +13,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,35 +23,39 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <title>Pineapple Express</title>
 </head>
+
 <body>
     <nav class="navbar is-fixed-top is-warning" role="navigation" aria-label="main navigation">
-      <div class="container is-fluid">
-          <div class="navbar-brand">
-              <a class="navbar-item" href="#">
-                <img src="img/pineapple-logo.png" id="navLogo"  alt="Logo">
-                <h1 class="subtitle is-5">Pineapple Express Bookings</h1>
-              </a>
-              <span class="navbar-burger" data-target="navbarMenu">
-                <span></span>
-                <span></span>
-                <span></span>
-              </span>
-          </div>
-          <div id="navbarMenu" class="navbar-menu">
-              <div class="navbar-end">
-                  <span class="navbar-item">
-                    <span><?php  if (isset($_SESSION['username'])) : ?>
-                    <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-                    </span>
+        <div class="container is-fluid">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="#">
+                    <img src="img/pineapple-logo.png" id="navLogo" alt="Logo">
+                    <h1 class="subtitle is-5">Pineapple Express Bookings</h1>
+                </a>
+                <span class="navbar-burger" data-target="navbarMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </div>
+            <div id="navbarMenu" class="navbar-menu">
+                <div class="navbar-end">
                     <span class="navbar-item">
-                    <a class="button is-warning is-text" href="index.php?logout='1'" id="navButton"> 
-                    <p>logout</p></a>
-                    <?php endif ?>
+                        <span>
+                            <?php  if (isset($_SESSION['username'])) : ?>
+                            <p>Welcome <strong>
+                                    <?php echo $_SESSION['username']; ?></strong></p>
+                        </span>
+                        <span class="navbar-item">
+                            <a class="button is-warning is-text" href="index.php?logout='1'" id="navButton">
+                                <p>logout</p>
+                            </a>
+                            <?php endif ?>
+                        </span>
                     </span>
-                  </span>
-              </div>
-          </div>
-      </div>
+                </div>
+            </div>
+        </div>
     </nav>
 
 
@@ -59,52 +64,77 @@
             <div class="columns">
                 <div class="column is-6">
                     <div class="box" id="bookForm">
-                        <form method="get" action="index.php">
+                        <form method="POST" action="index.php">
                             First Name:
-                            <input class="input is-rounded is-hovered" name="name" type="text" placeholder="Please enter your name" required>
+                            <input class="input is-rounded is-hovered" name="name" type="text" placeholder="Please enter your name"
+                                required>
                             Surname:
-                            <input class="input is-hovered is-rounded" name="surname" type="text" placeholder="Please enter your surname" required>
+                            <input class="input is-hovered is-rounded" name="surname" type="text" placeholder="Please enter your surname"
+                                required>
                             <br>
                             Select your hotel below:
                             <br>
-                                <div class="control">
-                                    <label class="wrapper" for="states"></label>
-                                        <div class="select is-rounded">
-                                            <div class="aside">
-                                                <select id="hotelSelector" class="toggle-divs" required>
-                                                    <option value="" disabled selected>--please select your hotel--</option>
-                                                    <option value="1">Pepperclub Hotel</option>
-                                                    <option value="2">The Walden Suites</option>
-                                                    <option value="3">Beachside</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                            <div class="control">
+                                <label class="wrapper" for="states"></label>
+                                <div class="select is-rounded">
+                                    <div class="aside">
+                                        <select name="Hotels" required>
+                                            <option value="" disabled selected>--please select your hotel--</option>
+                                            <option value="Pepperclub Hotel" name="hotel1">Pepperclub Hotel</option>
+                                            <option value="Beachside" name="hotel2">Beachside</option>
+                                            <option value="The Walden Suites" name="hotel3">The Walden Suites</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                Check-In:
-                                <input class="input is-rounded is-hovered" name="name" type="date" placeholder="Please enter your check-in date" required>
-                                Check-Out:
-                                <input class="input is-rounded is-hovered" name="name" type="date" placeholder="Please enter your check-out date" required>
-                                <br>
-                                <br>
-                                <button class="button is-rounded" type="submit" value="Submit">Submit</button>
+                            </div>
+                            Check-In:
+                            <input class="input is-rounded is-hovered" name="date1" type="date" placeholder="Please enter your check-in date"
+                                required>
+                            Check-Out:
+                            <input class="input is-rounded is-hovered" name="date2" type="date" placeholder="Please enter your check-out date"
+                                required>
+                            <br>
+                            <br>
+                            <button class="button is-rounded" type="submit" value="Submit" name="submit_btn">Submit</button>
                         </form>
                     </div>
-                </div> 
+                </div>
+                <div class="column is-5 is-offset-2">
+                    <div class="box" id="bookForm">
+                    <?php  
+                    if(isset($_POST['submit_btn']))  { ?> 
+                        <p>Thanks<strong>
+                            <?php echo $_POST['name']; ?>
+                            <?php echo $_POST['surname']; ?></strong></p>
+                            <p> You have booked <strong>
+                            <?php
+                            $date1 = strtotime($_POST['date1']);  
+                            $date2 = strtotime($_POST['date2']);   
+                            $diff = abs($date2 - $date1);  
+
+                            $years = floor($diff / (365*60*60*24));
+
+                            $months = floor(($diff - $years * 365*60*60*24) 
+                                                        / (30*60*60*24));
+
+                            $days = floor(($diff - $years * 365*60*60*24 -  
+                                        $months*30*60*60*24)/ (60*60*24)); 
+                            echo $days. "</strong> nights at "; 
+                            }  
+                            if(isset($_POST['submit_btn'])){
+                                $selected_val = $_POST['Hotels']; 
+                                echo "<strong>" .$selected_val. "</strong>";
+                                }
+                            ?>
+                            <?php
+                                
+                            ?>
+                    </div>      
+                </div>              
             </div>
         </div>
     </section>
 
-<script>
-
-$(document).ready(function() {
-  $('.toggle-divs').on('change', function() {
-    var nextAside = $(this).parent('.aside').next('.aside');
-    nextAside.find("div").hide();
-    nextAside.find(".div" + this.value).show()
-  });
-})
-
-</script>
-    
 </body>
+
 </html>
