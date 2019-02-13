@@ -1,5 +1,5 @@
 <?php 
-  include_once 'base.php';
+  include 'base.php';
 
   if (!isset($_SESSION['username'])) {
   	$_SESSION['msg'] = "You must log in first";
@@ -78,7 +78,7 @@
                                 <label class="wrapper" for="states"></label>
                                 <div class="select is-rounded">
                                     <div class="aside">
-                                        <select name="Hotels" required>
+                                        <select name="hotels" required>
                                             <option value="" disabled selected>--please select your hotel--</option>
                                             <option value="Pepperclub Hotel" name="hotel1">Pepperclub Hotel</option>
                                             <option value="Beachside" name="hotel2">Beachside</option>
@@ -99,36 +99,33 @@
                         </form>
                     </div>
                 </div>
-                <div class="column is-5 is-offset-2">
-                    <div class="box" id="bookForm">
-                    <?php  
-                    if(isset($_POST['submit_btn']))  { ?> 
-                        <p>Thanks<strong>
-                            <?php echo $_POST['name']; ?>
-                            <?php echo $_POST['surname']; ?></strong></p>
-                            <p> You have booked <strong>
-                            <?php
-                            $date1 = strtotime($_POST['date1']);  
-                            $date2 = strtotime($_POST['date2']);   
-                            $diff = abs($date2 - $date1);  
+                <div class="column is-5 is-offset-1">
+                    <div class="box">
+                    <?php 
+                    if(isset($_POST['submit_btn']))  {
+                            } ?> 
+                            <p>Thanks<strong>
+                                <?php echo $_POST['name']; ?>
+                                <?php echo $_POST['surname'];  ?>
+                                </strong><p> You are booking<strong>
+                                <?php echo $_POST['hotels'];  ?></strong>
+                                for
+                                <?php $date1 = strtotime($_POST['date1']);  
+                                $date2 = strtotime($_POST['date2']);   
+                                $diff = abs($date2 - $date1);  
 
-                            $years = floor($diff / (365*60*60*24));
+                                $years = floor($diff / (365*60*60*24));
 
-                            $months = floor(($diff - $years * 365*60*60*24) 
-                                                        / (30*60*60*24));
+                                $months = floor(($diff - $years * 365*60*60*24)
+                                                            / (30*60*60*24));
 
-                            $days = floor(($diff - $years * 365*60*60*24 -  
-                                        $months*30*60*60*24)/ (60*60*24)); 
-                            echo $days. "</strong> nights at "; 
-                            }  
-                            if(isset($_POST['submit_btn'])){
-                                $selected_val = $_POST['Hotels']; 
-                                echo "<strong>" .$selected_val. "</strong>";
-                                }
+                                $days = floor(($diff - $years * 365*60*60*24 - 
+                                            $months*30*60*60*24)/ (60*60*24)); 
+                                echo "<strong>" .$days. "</strong> nights."; 
+                            
                             ?>
-                            <?php
-                                
-                            ?>
+                            </p>
+                            
                     </div>      
                 </div>              
             </div>
