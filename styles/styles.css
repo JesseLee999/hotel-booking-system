@@ -22,14 +22,12 @@
 #bookForm {
     background-color: #ffdd57;
 }
-/* #hidden {
-    display: none;
-    background-color: #ffdd57;
-}
-#hidden::after {
-    display: show;
-    background-color: #ffdd57;
-} */
 #navLogo {
     background-size: 50px;
+}
+#textform {
+    text-transform: capitalize;
+}
+div#navbarMenu.navbar-burger.is-active {
+    background: #ffdd57;
 }

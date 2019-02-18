@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    <nav class="navbar is-fixed-top is-warning" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-warning" role="navigation" aria-label="main navigation">
         <div class="container is-fluid">
             <div class="navbar-brand">
                 <a class="navbar-item" href="#">
@@ -33,9 +33,10 @@
                     <h1 class="subtitle is-5">Pineapple Express Bookings</h1>
                 </a>
                 <span class="navbar-burger" data-target="navbarMenu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span>
+                    </span>
+                    <span>
+                    </span>
                 </span>
             </div>
             <div id="navbarMenu" class="navbar-menu">
@@ -61,77 +62,128 @@
 
     <section class="hero is-fullheight">
         <div class="hero-body">
-            <div class="columns">
-                <div class="column is-6">
-                    <div class="box" id="bookForm">
-                        <form method="POST" action="index.php">
-                            First Name:
-                            <input class="input is-rounded is-hovered" name="name" type="text" placeholder="Please enter your name"
-                                required>
-                            Surname:
-                            <input class="input is-hovered is-rounded" name="surname" type="text" placeholder="Please enter your surname"
-                                required>
-                            <br>
-                            Select your hotel below:
-                            <br>
-                            <div class="control">
-                                <label class="wrapper" for="states"></label>
-                                <div class="select is-rounded">
-                                    <div class="aside">
-                                        <select name="hotels" required>
-                                            <option value="" disabled selected>--please select your hotel--</option>
-                                            <option value="Pepperclub Hotel" name="hotel1">Pepperclub Hotel</option>
-                                            <option value="Beachside" name="hotel2">Beachside</option>
-                                            <option value="The Walden Suites" name="hotel3">The Walden Suites</option>
-                                        </select>
+            <div class="container is-fluid">
+                <div class="columns">
+                    <div class="column is-5">
+                        <div class="tile is-ancestor">
+                            <div class="tile is-vertical is-5">
+                                <div class="tile">
+                                    <div class="tile is-parent is-vertical">
+                                        <article class="tile is-child notification is-primary top-left">
+                                            <figure class="image is-96x96">
+                                                <img class="is-rounded" src="img/pepperclub-hotel-spa.jpg">
+                                            </figure>
+                                            <p class="title is-centered is-5">Pepperclub Hotel</p>
+                                            <p class="title is-6">R810</p>
+                                        </article>
+                                        <article class="tile is-child notification is-warning">
+                                            <figure class="image is-96x96">
+                                                <img class="is-rounded" src="img/beachside.jpg">
+                                            </figure>
+                                            <p class="title is-5">Beachside</p>
+                                            <p class="title is-6">R340</p>
+                                        </article>
                                     </div>
                                 </div>
                             </div>
-                            Check-In:
-                            <input class="input is-rounded is-hovered" name="date1" type="date" placeholder="Please enter your check-in date"
-                                required>
-                            Check-Out:
-                            <input class="input is-rounded is-hovered" name="date2" type="date" placeholder="Please enter your check-out date"
-                                required>
-                            <br>
-                            <br>
-                            <button class="button is-rounded" type="submit" value="Submit" name="submit_btn">Submit</button>
-                        </form>
+                            <div class="tile is-vertical is-4">
+                                <div class="tile">
+                                    <div class="tile is-parent is-vertical">
+                                        <article class="tile is-child notification is-warning">
+                                            <figure class="image is-96x96">
+                                                <img class="is-rounded" src="img/the-walden-suites.jpg"/>
+                                            </figure>
+                                            <p class="title is-5">Walden Suites</p>
+                                            <p class="title is-6">R580</p>  
+                                        </article>
+                                        <article class="tile is-child notification is-primary">
+                                            <figure class="image is-96x96">
+                                                <img class="is-rounded" src="img/tipton-hotel.jpg">
+                                            </figure>
+                                            <p class="title is-5">Tipton Hotel</p>
+                                            <p class="title is-6">R2100</p>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-3">
+                        <div class="box" id="bookForm">
+                            <form method="post" action="index.php">
+                                First Name:
+                                <input class="input is-rounded is-hovered" name="name" id="textform" type="text"
+                                    placeholder="Please enter your name" required>
+                                Surname:
+                                <input class="input is-hovered is-rounded" name="surname" type="text" placeholder="Please enter your surname"
+                                    required>
+                                <br>
+                                Select your hotel below:
+                                <br>
+                                <div class="control">
+                                    <div class="select is-rounded">
+                                        <div class="aside">
+                                            <select name="hotels" required>
+                                                <option value="" disabled selected>--select your hotel--</option>
+                                                <option name="hotel1" value="Pepperclub Hotel">Pepperclub Hotel</option>
+                                                <option value="Beachside" name="hotel2">Beachside</option>
+                                                <option value="Walden Suites" name="hotel3">Walden Suites</option>
+                                                <option value="Tipton Hotel" name="hotel4">Tipton Hotel</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                Check-In:
+                                <input class="input is-rounded is-hovered" name="date1" type="date" placeholder="Please enter your check-in date"
+                                    required>
+                                Check-Out:
+                                <input class="input is-rounded is-hovered" name="date2" type="date" placeholder="Please enter your check-out date"
+                                    required>
+                                <br>
+                                <br>
+                                <button class="button is-rounded" type="submit" value="Submit" name="submit_btn">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="column is-3">
+                        <div class="box" id="bookForm">
+                            <?php 
+                            if(isset($_POST['submit_btn']))  {
+                            $date1 = strtotime($_POST['date1']);  
+                            $date2 = strtotime($_POST['date2']);   
+                            $diff = abs($date2 - $date1);  
+
+                            $years = floor($diff / (365*60*60*24));
+
+                            $months = floor(($diff - $years * 365*60*60*24)
+                                                        / (30*60*60*24));
+
+                            $days = floor(($diff - $years * 365*60*60*24 - 
+                                        $months*30*60*60*24)/ (60*60*24));
+                                    
+                            // $hotelprice = $_POST['hotels'] array(
+                                
+
+                            // )
+                            
+                            
+
+                           
+        ////////////////////////////////////////////////
+
+                            echo "<p>Thanks <strong>" .$_POST['name']. " " .$_POST['surname']. "</strong><p> You are booking <strong>" .$_POST['hotels']. "</strong> for <strong>" .$days. "</strong> nights. </p><p> Daily rate: ";  }
+                            ?>
+                        </div>
                     </div>
                 </div>
-                <div class="column is-5 is-offset-1">
-                    <div class="box">
-                    <?php 
-                    if(isset($_POST['submit_btn']))  {
-                            } ?> 
-                            <p>Thanks<strong>
-                                <?php echo $_POST['name']; ?>
-                                <?php echo $_POST['surname'];  ?>
-                                </strong><p> You are booking<strong>
-                                <?php echo $_POST['hotels'];  ?></strong>
-                                for
-                                <?php $date1 = strtotime($_POST['date1']);  
-                                $date2 = strtotime($_POST['date2']);   
-                                $diff = abs($date2 - $date1);  
-
-                                $years = floor($diff / (365*60*60*24));
-
-                                $months = floor(($diff - $years * 365*60*60*24)
-                                                            / (30*60*60*24));
-
-                                $days = floor(($diff - $years * 365*60*60*24 - 
-                                            $months*30*60*60*24)/ (60*60*24)); 
-                                echo "<strong>" .$days. "</strong> nights."; 
-                            
-                            ?>
-                            </p>
-                            
-                    </div>      
-                </div>              
             </div>
         </div>
     </section>
 
 </body>
+
+<script src="js/main.js">
+</script>
 
 </html>
