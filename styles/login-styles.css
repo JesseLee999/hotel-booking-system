@@ -42,32 +42,5 @@
   #regForm {
     background-color: #ffdd57;
 }
-<?php  
-if(isset($_POST['submit_btn']))  { ?> 
-    <p>Thanks<strong>
-        
-        <p> You are booking <strong>
 
-
-<?php echo $_POST['name']; ?>
-<?php echo $_POST['surname']; ?></strong></p>
-<?php
-                            $date1 = strtotime($_POST['date1']);  
-                            $date2 = strtotime($_POST['date2']);   
-                            $diff = abs($date2 - $date1);  
-
-                            $years = floor($diff / (365*60*60*24));
-
-                            $months = floor(($diff - $years * 365*60*60*24)
-                                                        / (30*60*60*24));
-
-                            $days = floor(($diff - $years * 365*60*60*24 - 
-                                        $months*30*60*60*24)/ (60*60*24)); 
-                            echo $days. "</strong> nights at "; 
-                            }  
-                            if(isset($_POST['submit_btn'])){
-                                $selected_val = $_POST['hotels']; 
-                                echo "<strong>" .$selected_val. "</strong>";
-                                }
-                            ?>
 

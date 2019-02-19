@@ -29,5 +29,6 @@
     text-transform: capitalize;
 }
 div#navbarMenu.navbar-burger.is-active {
-    background: #ffdd57;
+    background-color: #ffdd57 !important;
 }
+

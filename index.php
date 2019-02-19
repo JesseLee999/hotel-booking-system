@@ -124,9 +124,9 @@
                                 <div class="control">
                                     <div class="select is-rounded">
                                         <div class="aside">
-                                            <select name="hotels" required>
+                                            <select name="hotels" id="hotelselector" required>
                                                 <option value="" disabled selected>--select your hotel--</option>
-                                                <option name="hotel1" value="Pepperclub Hotel">Pepperclub Hotel</option>
+                                                <option value="Pepperclub Hotel" name="hotel1">Pepperclub Hotel</option>
                                                 <option value="Beachside" name="hotel2">Beachside</option>
                                                 <option value="Walden Suites" name="hotel3">Walden Suites</option>
                                                 <option value="Tipton Hotel" name="hotel4">Tipton Hotel</option>
@@ -162,17 +162,16 @@
                             $days = floor(($diff - $years * 365*60*60*24 - 
                                         $months*30*60*60*24)/ (60*60*24));
                                     
-                            // $hotelprice = $_POST['hotels'] array(
+                            if ('hotel18') {
                                 
-
-                            // )
+                            }
                             
-                            
+                            // $total = $price * $days;
 
                            
         ////////////////////////////////////////////////
 
-                            echo "<p>Thanks <strong>" .$_POST['name']. " " .$_POST['surname']. "</strong><p> You are booking <strong>" .$_POST['hotels']. "</strong> for <strong>" .$days. "</strong> nights. </p><p> Daily rate: ";  }
+                            echo "<p>Thanks <strong>" .$_POST['name']. " " .$_POST['surname']. "</strong><p> You are booking <strong>" .$_POST['hotels']. "</strong> for <strong>" .$days. "</strong> nights. </p><p> Daily rate: " .$daily. "<br><p>Total Rate: " ;  }
                             ?>
                         </div>
                     </div>

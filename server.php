@@ -5,8 +5,10 @@ $username = "";
 $email    = "";
 $errors = array(); 
 
+// Connect to Database
 $db = mysqli_connect('localhost', 'root', '', 'registration');
 
+// Registering as a user
 if (isset($_POST['reg_user'])) {
  
   $username = mysqli_real_escape_string($db, $_POST['username']);
@@ -14,7 +16,7 @@ if (isset($_POST['reg_user'])) {
   $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
   $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
 
-
+  //Requirements for register
   if (empty($username)) { array_push($errors, "Username is required"); }
   if (empty($email)) { array_push($errors, "Email is required"); }
   if (empty($password_1)) { array_push($errors, "Password is required"); }
@@ -26,6 +28,7 @@ if (isset($_POST['reg_user'])) {
   $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);
   
+  // Check for duplicates
   if ($user) { 
     if ($user['username'] === $username) {
       array_push($errors, "Username already exists");
@@ -36,7 +39,7 @@ if (isset($_POST['reg_user'])) {
     }
   }
 
-
+  // No errors found
   if (count($errors) == 0) {
   	$password = md5($password_1);
 
@@ -52,7 +55,7 @@ if (isset($_POST['reg_user'])) {
 //////////
 
 
-
+// Login as a user
 if (isset($_POST['login_user'])) {
     $username = mysqli_real_escape_string($db, $_POST['username']);
     $password = mysqli_real_escape_string($db, $_POST['password']);
@@ -63,7 +66,8 @@ if (isset($_POST['login_user'])) {
     if (empty($password)) {
         array_push($errors, "Password is required");
     }
-  
+    
+    //Validation
     if (count($errors) == 0) {
         $password = md5($password);
         $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";

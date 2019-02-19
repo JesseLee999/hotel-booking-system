@@ -6,5 +6,5 @@ $(".navbar-burger").click(function() {
 window.addEventListener("scroll", function(){
   $(".navbar-burger").removeClass("is-active");
   $(".navbar-menu").removeClass("is-active");
-})
+});
 
