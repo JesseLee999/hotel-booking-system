@@ -161,21 +161,48 @@
 
                             $days = floor(($diff - $years * 365*60*60*24 - 
                                         $months*30*60*60*24)/ (60*60*24));
-                            
-                            $hotel1 = 'R810';
-                            $hotel2 = 'R340';
-                            $hotel3 = 'R580';
-                            $hotel4 = 'R2100';
-
-                            //Calculate here
-                            if ($hotel1) {
-                                # code...
-                            }
-
                            
-        ////////////////////////////////////////////////
+        ////////////////////Mesasge displaying data
 
-                            echo "<p>Thanks <strong>" .$_POST['name']. " " .$_POST['surname']. "</strong><p> You are booking <strong>" .$_POST['hotels']. "</strong> for <strong>" .$days. "</strong> nights. <br><p>Total Rate: " .$total ;  }
+                            echo "<p>Thanks <strong>" .$_POST['name']. " " .$_POST['surname']. "</strong><p> You are booking <strong>" .$_POST['hotels']. "</strong> for <strong>" .$days. "</strong> nights. <br>";
+
+                            // Calculate daily rate    
+
+                            $hotel = $_POST['hotels'];
+
+                            if ($hotel == "Pepperclub Hotel") {
+                                echo 'Daily rate: R810<br>';
+
+                            } else if($hotel == "Beachside") {
+                                echo 'Daily rate: R340<br>';
+
+                            } else if($hotel == "Walden Suites") {
+                                echo 'Daily rate: R580<br>';
+
+                            } else {
+                                echo 'Daily rate: R2100<br>';
+
+                            };
+
+
+                            // Calculate total rate
+                            $total = $_POST['hotels'];
+
+                            if ($total == "Pepperclub Hotel") {
+                                echo 'Total rate: R' .$days * 810;
+
+                            } else if($total == "Beachside") {
+                                echo 'Total rate: R' .$days * 340;
+
+                            } else if($total == "Walden Suites") {
+                                echo 'Total rate: R' .$days * 580;
+
+                            } else {
+                                echo 'Total rate: R' .$days * 2100;
+
+                            }; "<br><p>Total Rate: " .$total;
+                        }
+
                             ?>
                         </div>
                     </div>
