@@ -13,7 +13,7 @@
   			<h2 class="title">Login</h2>
 	 
   <form method="post" action="login.php">
-		<?php include('errors.php'); ?>
+		<?php include('inc/errors.php'); ?>
   	<div class="input-group">
   		<label>Username</label>
   		<input type="text" name="username" >

@@ -1,5 +1,5 @@
 <?php 
-  include 'base.php';
+  include 'config/base.php';
 
   if (!isset($_SESSION['username'])) {
   	$_SESSION['msg'] = "You must log in first";
@@ -161,17 +161,21 @@
 
                             $days = floor(($diff - $years * 365*60*60*24 - 
                                         $months*30*60*60*24)/ (60*60*24));
-                                    
-                            if ('hotel18') {
-                                
-                            }
                             
-                            // $total = $price * $days;
+                            $hotel1 = 'R810';
+                            $hotel2 = 'R340';
+                            $hotel3 = 'R580';
+                            $hotel4 = 'R2100';
+
+                            //Calculate here
+                            if ($hotel1) {
+                                # code...
+                            }
 
                            
         ////////////////////////////////////////////////
 
-                            echo "<p>Thanks <strong>" .$_POST['name']. " " .$_POST['surname']. "</strong><p> You are booking <strong>" .$_POST['hotels']. "</strong> for <strong>" .$days. "</strong> nights. </p><p> Daily rate: " .$daily. "<br><p>Total Rate: " ;  }
+                            echo "<p>Thanks <strong>" .$_POST['name']. " " .$_POST['surname']. "</strong><p> You are booking <strong>" .$_POST['hotels']. "</strong> for <strong>" .$days. "</strong> nights. <br><p>Total Rate: " .$total ;  }
                             ?>
                         </div>
                     </div>
